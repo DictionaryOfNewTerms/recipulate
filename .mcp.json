@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "project": "Recipulate",
+  "description": "Recipulate - Project-specific MCP servers with isolated credentials",
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${RECIPULATE_GITHUB_TOKEN}"
+      }
+    }
+  }
+}
