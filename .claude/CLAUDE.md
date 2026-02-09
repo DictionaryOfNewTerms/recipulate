@@ -37,20 +37,18 @@ On session start, Claude should verify required credentials exist based on proje
 
 **For static projects:**
 ```bash
-echo $RECIPULATE_GITHUB_TOKEN  # Should show token (not "NOT_CONFIGURED")
+echo $GITHUB_TOKEN   # From hobby.env — should show token (not "NOT_CONFIGURED")
 ```
 
 **For full-stack projects:**
 ```bash
-echo $RECIPULATE_GITHUB_TOKEN      # Required
-echo $RECIPULATE_VERCEL_TOKEN      # Required for troubleshooting
+echo $GITHUB_TOKEN      # From hobby.env — required
+echo $VERCEL_TOKEN      # From hobby.env — required for troubleshooting
 echo $RECIPULATE_SUPABASE_URL      # Required
 echo $RECIPULATE_SUPABASE_ACCESS_TOKEN  # Required for MCP
 ```
 
-If any are missing or show "NOT_CONFIGURED", prompt:
-> "This project needs [service] credentials. Add `RECIPULATE_[VAR]` to
-> `~/.env.credentials/recipulate.env` and run `direnv allow`."
+If GitHub/Vercel tokens are missing, run `direnv allow` to load `hobby.env`.
 
 ---
 
@@ -62,10 +60,9 @@ If any are missing or show "NOT_CONFIGURED", prompt:
 |---------|-------|
 | **GitHub Account** | `roar-gits` |
 | **Repository** | `roar-gits/recipulate` |
-| **Token Variable** | `RECIPULATE_GITHUB_TOKEN` |
-| **Username Variable** | `RECIPULATE_GITHUB_USERNAME` |
-| **Credential File** | `~/.env.credentials/recipulate.env` (600 permissions) |
-| **Isolation** | direnv - only this project's tokens loaded |
+| **Token Variable** | `HOBBY_GITHUB_TOKEN` (from `hobby.env`) |
+| **Credential File** | `~/.env.credentials/hobby.env` (shared) + `recipulate.env` (project-specific) |
+| **Isolation** | direnv - loads hobby.env + project credentials |
 | **MCP Config** | `.mcp.json` |
 
 ### GitHub Tools (Dual-Path)
@@ -109,7 +106,7 @@ gh pr create --title "..." --body "..."
 
 | Server | Status | Purpose |
 |--------|--------|---------|
-| GitHub | Configured | Repository operations via `RECIPULATE_GITHUB_TOKEN` |
+| GitHub | Configured | Repository operations via `HOBBY_GITHUB_TOKEN` |
 
 ---
 
