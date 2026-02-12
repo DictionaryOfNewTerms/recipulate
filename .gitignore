@@ -14,3 +14,6 @@ Thumbs.db
 
 # Vercel
 .vercel/
+
+# direnv credentials
+.envrc
