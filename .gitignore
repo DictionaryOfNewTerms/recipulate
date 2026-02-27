@@ -6,11 +6,14 @@ Thumbs.db
 .env
 .env.*
 
-# Claude Code local settings
-.claude/settings.local.json
+# Claude Code (internal workflow, not part of the project)
+.claude/
 
 # Playwright MCP
 .playwright-mcp/
+
+# MCP config
+.mcp.json
 
 # Vercel
 .vercel/
