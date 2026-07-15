@@ -22,3 +22,5 @@ Automatic on push to `main` via `.github/workflows/deploy.yml`.
 ## Credentials
 
 Handled by `.envrc` + global doctrine — no project-level setup needed.
+
+**Landing-page repo ≠ coming-soon page**: this repo IS the deliverable (a profile-pinnable public artifact); real product work happens at the `real_project:` path in `.project-meta`. A *coming-soon page* is a route inside an actual product project — do not apply landing-page shortcuts there. (Rehomed from global CLAUDE.md V13, 2026-07-15.)
